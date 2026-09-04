@@ -1,0 +1,68 @@
+# ⚡ QUICK ACTION - FIX GRADLE SYNC NOW
+
+## 🎯 Do This Right Now (5 minutes)
+
+### Step 1: Copy & Paste This into PowerShell
+```powershell
+# Close any running gradle processes
+Get-Process gradle -ErrorAction SilentlyContinue | Stop-Process -Force
+
+# Clear all gradle and android caches
+Remove-Item -Path "$env:USERPROFILE\.gradle" -Recurse -Force -ErrorAction SilentlyContinue
+Remove-Item -Path "$env:USERPROFILE\.android" -Recurse -Force -ErrorAction SilentlyContinue
+
+# Clean build directories
+cd "C:\Users\Raghav\AndroidStudioProjects\main_snake_game"
+Remove-Item -Path "app\build", "build", ".gradle" -Recurse -Force -ErrorAction SilentlyContinue 2>$null
+
+Write-Host "✅ Caches cleared! Ready to rebuild." -ForegroundColor Green
+```
+
+### Step 2: Close Android Studio
+- File → Exit
+- Wait 10 seconds
+
+### Step 3: Reopen Android Studio
+- Double-click Android Studio icon
+- Project opens automatically
+
+### Step 4: Invalidate Cache & Restart
+- File → Invalidate Caches
+- Click "Invalidate and Restart"
+- Wait for restart (2-3 minutes)
+
+### Step 5: Sync Gradle
+- File → Sync Now
+- OR press Ctrl+Shift+I
+- Wait 5-10 minutes for full sync
+
+### Step 6: Check Status
+```bash
+cd "C:\Users\Raghav\AndroidStudioProjects\main_snake_game"
+./gradlew tasks
+```
+
+---
+
+## ✅ Success Signs
+
+You should see:
+```
+✓ Gradle sync completed successfully
+✓ No red error markers
+✓ Kotlin files visible in tree
+✓ Tasks listed successfully
+```
+
+---
+
+## 🚀 Then Continue With
+
+1. Read: `00_START_HERE.md`
+2. Read: `QUICKSTART.md`
+3. Create Firebase project
+4. Build the game!
+
+---
+
+**Need help? See: GRADLE_SYNC_FIX.md**
